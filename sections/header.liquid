@@ -52,16 +52,23 @@
 {%- endif -%}
 
 {% if section.settings.show_announcement_message != blank and section.settings.announcement_message != blank %}
+  <script type="text/javascript" src="https://www.moneymetals.com/api/spot_prices/embed.js"></script>
+  <script defer="" type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("#mmx-spot-prices").MMXSpotPrices();
+    });
+  </script>
   <div class="announcementBar">
     <div class="announcementBar__message">
-      {% if section.settings.announcement_link and section.settings.announcement_message != blank %}
+      <div id="mmx-spot-prices" class="money-stock-outer" style="display: block;"></div>
+      <!-- {% if section.settings.announcement_link and section.settings.announcement_message != blank %}
         <a href="{{ section.settings.announcement_link }}" tabindex="0">
           <p>{{ section.settings.announcement_message }}</p>
         </a>
       {% elsif section.settings.announcement_message != blank %}
         <p>{{ section.settings.announcement_message }}</p>
       {% endif %}
-      <span class="ss-icon banner-close icon-close" tabindex="0"></span>
+      <span class="ss-icon banner-close icon-close" tabindex="0"></span> -->
     </div>
   </div>
 {% endif %}
